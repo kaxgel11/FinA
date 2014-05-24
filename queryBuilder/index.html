@@ -1,0 +1,82 @@
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="ms/angular-multi-select.css">
+    <link rel="stylesheet" type="text/css" href="ng-grid.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="squel.js"></script>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="ng-grid.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script src="ms/angular-multi-select.js"></script>
+</head>
+<body ng-controller="MyCtrl">
+<table>
+    <tr>
+        <td>
+           select busines object:
+        </td>
+        <td>
+            <div
+                    multi-select
+                    input-model="businesObjects"
+                    button-label="icon name"
+                    item-label="icon name maker"
+                    tick-property="ticked"
+                    selection-mode="single"
+                    helper-elements=""
+                    output-model="bo"
+                    ></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input ng-model="filterType" readonly>
+
+        </td>
+        <td>
+            <div
+                    ng-click="change()"
+                    multi-select
+                    input-model="cities"
+                    button-label="icon name"
+                    item-label="icon name maker"
+                    tick-property="ticked"
+                    output-model="sc"
+                    >
+            </div>
+        </td>
+        <td>
+            search in fields:
+        </td>
+        <td>
+            <div
+                    multi-select
+                    input-model="tableFields"
+                    button-label="icon name"
+                    item-label="icon name maker"
+                    tick-property="ticked"
+                    output-model="searchInFields"
+                    >
+            </div>
+        </td>
+        <td>
+            search value:
+        </td>
+        <td>
+            <input ng-change="nameInput(clientName)" ng-model="clientName">
+        </td>
+        <td>
+            <button ng-click="loadData()">Get Data</button>
+        </td>
+
+    </tr>
+</table>
+<div class="gridStyle" ng-grid="gridOptions">
+
+</div>
+<input type="text" ng-model="filterOptions.filterText">
+</body>
+</html>
