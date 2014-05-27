@@ -36,24 +36,27 @@
             <input ng-model="filterType" readonly>
 
         </td>
-        <td>
+        <td ng-repeat="(key,value) in currentBOFilters">
+            {{key}}:
             <div
-                    ng-click="change()"
+
                     multi-select
-                    input-model="cities"
+                    input-model="filterInputData[key]"
                     button-label="icon name"
+                    max-labels="2"
                     item-label="icon name maker"
                     tick-property="ticked"
-                    output-model="sc"
+                    output-model="filterOutputData[key]"
                     >
             </div>
         </td>
         <td>
             search in fields:
         </td>
-        <td>
+        <td >
             <div
                     multi-select
+                    max-labels="2"
                     input-model="tableFields"
                     button-label="icon name"
                     item-label="icon name maker"
@@ -62,16 +65,15 @@
                     >
             </div>
         </td>
-        <td>
-            search value:
-        </td>
-        <td>
-            <input ng-change="nameInput(clientName)" ng-model="clientName">
-        </td>
+    </tr>
+    <tr ng-repeat="(key,value) in searchFields">
+        <td>{{key}}</td>
+        <td><input ng-model="value.value"></td>
+    </tr>
+    <tr>
         <td>
             <button ng-click="loadData()">Get Data</button>
         </td>
-
     </tr>
 </table>
 <div class="gridStyle" ng-grid="gridOptions">
